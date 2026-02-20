@@ -9,10 +9,15 @@ while (active) {
     switch (option) {
         case 1:
             const value = prompt('¿Qué deseas agregar?')
-            options.push(value);
+            const age = prompt('¿Qué edad tiene?')
+            options.push({
+                id: options.length + 1,
+                name: value,
+                age: age,
+            });
             break;
         case 2:
-            alert(options.join('\n'))
+            alert(options.map((user)=> user.name).join(`\n`))
             break;
         case 3:
             active = false;
@@ -27,6 +32,6 @@ while (active) {
     }
 }
 
-options.forEach((option) => {
-    document.write(`<li>${option}</li>`)
+options.forEach((optione) => {
+    document.write(`<li>Usuario: ${optione.id} - ${optione.name} de ${optione.age} años</li>`)
 })
